@@ -24,8 +24,12 @@
 				"streetsidesoftware.code-spell-checker"
 			]
 		}
-	}
+	},
 
+	"remoteEnv": {
+		"GIT_REPO_PATH": "/workspaces/git_summarizer/zigbee2mqtt"
+	}
+	
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
 }
