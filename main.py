@@ -58,20 +58,14 @@ def get_commit_line_changes(commit):
         prev_commit = commit.parents[0]  # Get the first parent of the commit
 
         # Retrieve line changes
-        line_changes = commit.diff(prev_commit, create_patch=True).iter_change_type('M')  # 'M' indicates modified files
+        line_changes = commit.diff(prev_commit, create_patch=True)
 
-
+        print(f"Commit message: {commit.message}")
         for change in line_changes:
-            print(f"File Path: {change.a_path}")
+            # print(f"File Path: {change.a_path}")
+            print("\n-\/-\/-\/-")
             print("Lines Changed:")
-
             print(change)
-            diff_lines = change.diff.split('\n')
-            print('not here')
-
-            for line in diff_lines:
-                if line.startswith('-') or line.startswith('+'):
-                    print(line)
 
     except Exception as e:
         print(f"Error retrieving line changes: {e}")
@@ -90,7 +84,7 @@ if __name__ == "__main__":
         # create list of commits then print some of them to stdout
         commits = list(repo.iter_commits(repo.active_branch))[:COMMITS_TO_PRINT]
         for commit in commits:
-            print_commit(commit)
+            # print_commit(commit)
 
             get_commit_line_changes(commit)
 
